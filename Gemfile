@@ -17,22 +17,19 @@
 # You should have received a copy of the GNU General Public License
 # along with algoheader.  If not, see <http://www.gnu.org/licenses/>.
 
-
 source 'https://rubygems.org'
-ruby '2.5.1'
+ruby '3.0.1'
 
 group :development, :test do
   # Minitest for unit tests
-  gem 'minitest', '~> 5.11', '>= 5.11.3'
+  gem 'minitest'
   # Rake executes tasks defined in the Rakefile
-  gem 'rake', '~> 12.3', '>= 12.3.1'
+  gem 'rake'
 end
 
 group :development do
-  # Pry for debugging/REPL
-  gem 'pry', '~> 0.11.3'
   # Rubocop for code style guidelines
-  gem 'rubocop', '~> 0.59.2'
+  gem 'rubocop'
   # RDoc for generating documentation
-  gem 'rdoc', '~> 5.1'
+  gem 'rdoc'
 end

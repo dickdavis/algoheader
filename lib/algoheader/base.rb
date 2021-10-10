@@ -17,7 +17,6 @@
 # You should have received a copy of the GNU General Public License
 # along with algoheader.  If not, see <http://www.gnu.org/licenses/>.
 
-
 ##
 # = /lib/algoheader.rb
 # Author::    Dick Davis
@@ -25,8 +24,9 @@
 # License::   GNU Public License 3
 #
 # Main application file that loads other files.
-require 'algoheader/hello'
 
+require 'algoheader/png_transformer'
+require 'algoheader/svg_generator'
 require 'algoheader/version'
 require 'optparse'
 require 'English'
@@ -41,8 +41,12 @@ options = {}
 optparse = OptionParser.new do |opts|
   opts.banner = 'Usage: algoheader [options]'
 
-  opts.on('-g', '--greet NAME', 'Provides a greeting given a name.') do |name|
-    options[:greet] = name
+  opts.on('-c', '--config FILE', 'Specifies the configuration file to use.') do |config|
+    options[:config] = config
+  end
+
+  opts.on('-d', '--directory NAME', 'Sets the output directory.') do |dir|
+    options[:dir] = dir
   end
 
   opts.on('-l', '--license', 'Displays the copyright notice') do
@@ -79,12 +83,12 @@ rescue OptionParser::InvalidOption, OptionParser::MissingArgument
   exit 1
 end
 
-if options[:greet]
-  # Displays the greeting which serves as a functional test
-  puts Algoheader::Hello.greeting(options[:greet])
-end
+COLOR_SCHEMES = {
+  magnolia: ['rgb(246,238,235)', 'rgb(234,213,207)', 'rgb(200,224,228)', 'rgb(113,151,160)', 'rgb(34,48,83)', 'none', 'white']
+}
 
-# NOTE: You should replace the greet functionality with some of your own code.
-#       Use the hello.rb file as a guide for structuring your code, and ensure
-#       that you adjust the require statement as well as the CLI option (if
-#       included), adding additional files/CLI options in a similar fashion.
+%i(magnolia).each do |scheme|
+  50.times do |index|
+    Algoheader::PngTransformer.call(Algoheader::SvgGenerator.call(COLOR_SCHEMES[scheme]), "#{scheme.to_s}_#{index}")
+  end
+end

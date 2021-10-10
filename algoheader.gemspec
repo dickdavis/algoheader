@@ -35,9 +35,9 @@ Gem::Specification.new do |s|
   HEREDOC
   s.license       = 'GPL-3.0'
   s.files         = Dir['lib/**/*']
-
   s.executables   = ['algoheader']
-
   s.test_files    = Dir['test/**/*']
   s.require_path  = ['lib']
+
+  s.add_runtime_dependency 'ascii_to_svg'
 end

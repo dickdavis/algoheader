@@ -17,13 +17,31 @@
 # You should have received a copy of the GNU General Public License
 # along with algoheader.  If not, see <http://www.gnu.org/licenses/>.
 
-require 'algoheader/base'
+require 'rmagick'
+require_relative 'service_object'
 
-##
-# = Algoheader
-# Author::    Dick Davis
-# Copyright:: Copyright 2021 Dick Davis
-# License::   GNU Public License 3
-#
-# Module for namespacing application classes.
-module Algoheader; end
+module Algoheader
+  ##
+  # = PngTransformer
+  # Author::    Dick Davis
+  # Copyright:: Copyright 2021 Dick Davis
+  # License::   GNU Public License 3
+  #
+  # Service object that writes SVG blobs to PNG files.
+  class PngTransformer < ServiceObject
+    attr_reader :svg, :filename
+
+    def initialize(svg, filename)
+      @svg = svg
+      @filename = filename
+    end
+
+    def call
+      img = Magick::Image.from_blob(svg) do
+        self.format = 'SVG'
+        self.background_color = 'transparent'
+      end
+      img[0].write("#{filename}.png")
+    end
+  end
+end

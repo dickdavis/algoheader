@@ -17,20 +17,19 @@
 # You should have received a copy of the GNU General Public License
 # along with algoheader.  If not, see <http://www.gnu.org/licenses/>.
 
-
 module Algoheader
   ##
-  # = Hello
+  # = ServiceObject
   # Author::    Dick Davis
   # Copyright:: Copyright 2021 Dick Davis
   # License::   GNU Public License 3
   #
-  # Contains modularized code for project; given example provides a greeting
-  class Hello
+  # Superclass for classes using the service object design pattern.
+  class ServiceObject
     ##
-    # Returns a greeting provided a name.
-    def self.greeting(name)
-      "Hello, #{name}."
+    # Allows subclasses to be initialized and called at the same time.
+    def self.call(*args, &block)
+      new(*args, &block).call
     end
   end
 end
