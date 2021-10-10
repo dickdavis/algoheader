@@ -28,8 +28,10 @@
 require 'algoheader/png_transformer'
 require 'algoheader/svg_generator'
 require 'algoheader/version'
+
 require 'optparse'
 require 'English'
+require 'fileutils'
 
 trap('INT') do
   puts "\nTerminating..."
@@ -87,8 +89,15 @@ COLOR_SCHEMES = {
   magnolia: ['rgb(246,238,235)', 'rgb(234,213,207)', 'rgb(200,224,228)', 'rgb(113,151,160)', 'rgb(34,48,83)', 'none', 'white']
 }
 
+output_dir = options[:dir] ? options[:dir] : 'algoheader_output'
+FileUtils.mkdir_p output_dir
+
 %i(magnolia).each do |scheme|
   50.times do |index|
-    Algoheader::PngTransformer.call(Algoheader::SvgGenerator.call(COLOR_SCHEMES[scheme]), "#{scheme.to_s}_#{index}")
+    Algoheader::PngTransformer.call(
+      Algoheader::SvgGenerator.call(COLOR_SCHEMES[scheme]),
+      output_dir,
+      "#{scheme.to_s}_#{index}"
+    )
   end
 end

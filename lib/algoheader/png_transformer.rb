@@ -29,10 +29,11 @@ module Algoheader
   #
   # Service object that writes SVG blobs to PNG files.
   class PngTransformer < ServiceObject
-    attr_reader :svg, :filename
+    attr_reader :svg, :dir, :filename
 
-    def initialize(svg, filename)
+    def initialize(svg, dir, filename)
       @svg = svg
+      @dir = dir
       @filename = filename
     end
 
@@ -41,7 +42,7 @@ module Algoheader
         self.format = 'SVG'
         self.background_color = 'transparent'
       end
-      img[0].write("#{filename}.png")
+      img[0].write("#{dir}/#{filename}.png")
     end
   end
 end
