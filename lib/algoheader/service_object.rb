@@ -28,8 +28,8 @@ module Algoheader
   class ServiceObject
     ##
     # Allows subclasses to be initialized and called at the same time.
-    def self.call(*args, &block)
-      new(*args, &block).call
+    def self.call(*args, **kwargs, &block)
+      new(*args, **kwargs, &block).call
     end
   end
 end
