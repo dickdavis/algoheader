@@ -1,0 +1,16 @@
+color_schemes:
+  - name: 'magnolia'
+    fill_colors:
+      - 'rgb(246,238,235)'
+      - 'rgb(234,213,207)'
+      - 'rgb(200,224,228)'
+      - 'none'
+      - 'white'
+    stroke_colors:
+      - 'rgb(246,238,235)'
+      - 'rgb(234,213,207)'
+      - 'rgb(200,224,228)'
+      - 'rgb(113,151,160)'
+      - 'rgb(34,48,83)'
+      - 'none'
+      - 'white'

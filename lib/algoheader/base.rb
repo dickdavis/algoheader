@@ -32,6 +32,7 @@ require 'algoheader/version'
 require 'optparse'
 require 'English'
 require 'fileutils'
+require 'yaml'
 
 trap('INT') do
   puts "\nTerminating..."
@@ -85,19 +86,32 @@ rescue OptionParser::InvalidOption, OptionParser::MissingArgument
   exit 1
 end
 
-COLOR_SCHEMES = {
-  magnolia: ['rgb(246,238,235)', 'rgb(234,213,207)', 'rgb(200,224,228)', 'rgb(113,151,160)', 'rgb(34,48,83)', 'none', 'white']
-}
-
 output_dir = options[:dir] ? options[:dir] : 'algoheader_output'
 FileUtils.mkdir_p output_dir
 
-%i(magnolia).each do |scheme|
-  50.times do |index|
-    Algoheader::PngTransformer.call(
-      Algoheader::SvgGenerator.call(COLOR_SCHEMES[scheme]),
-      output_dir,
-      "#{scheme.to_s}_#{index}"
-    )
+config = YAML.load_file(options[:config])
+
+selection = ''
+
+while true
+  puts 'Choose a color scheme from the list below:'
+
+  schemes = config['color_schemes'].collect{|scheme| scheme['name'] }
+  schemes.each.with_index do |scheme, index|
+    puts "#{index}: #{scheme}"
   end
+
+  puts 'Selection => '
+  user_input = gets.chomp.to_i
+  if (0..schemes.length - 1).include?(user_input)
+    selection = config['color_schemes'].select{|scheme| scheme['name'] == schemes[user_input] }
+                                       .first
+                                       .transform_keys(&:to_sym)
+    break
+  end
+end
+
+50.times do |index|
+  svg_blob = Algoheader::SvgGenerator.call(**selection.slice(:fill_colors, :stroke_colors))
+  Algoheader::PngTransformer.call(svg_blob, output_dir, "#{selection[:name].to_s}_#{index}")
 end

@@ -34,10 +34,11 @@ module Algoheader
     LINECAPS = ['butt', 'round', 'square']
     OPACITIES = [0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
 
-    attr_reader :colors
+    attr_reader :fill_colors, :stroke_colors
 
-    def initialize(colors)
-      @colors = colors
+    def initialize(fill_colors:, stroke_colors:)
+      @fill_colors = fill_colors
+      @stroke_colors = stroke_colors
     end
 
     def call
@@ -53,16 +54,16 @@ module Algoheader
       {
         canvas__size__x: 1500,
         style__line__stroke__width: random_width,
-        style__line__stroke__color: random_color,
+        style__line__stroke__color: random_stroke_color,
         style__line__stroke__opacity: random_opacity,
         style__line__stroke__linecap: random_linecap,
         style__ellipse__stroke__width: random_width,
-        style__ellipse__stroke__color: random_color,
+        style__ellipse__stroke__color: random_stroke_color,
         style__ellipse__stroke__opacity: random_opacity,
         style__ellipse__stroke__linecap: random_linecap,
-        style__ellipse__fill: random_color,
-        style__rectangle__fill__color: random_color,
-        style__canvas__fill__color: random_color,
+        style__ellipse__fill: random_fill_color,
+        style__rectangle__fill__color: random_fill_color,
+        style__canvas__fill__color: random_fill_color,
       }
     end
 
@@ -82,8 +83,12 @@ module Algoheader
       LINECAPS.sample
     end
 
-    def random_color
-      colors.sample
+    def random_fill_color
+      fill_colors.sample
+    end
+
+    def random_stroke_color
+      stroke_colors.sample
     end
   end
 end
