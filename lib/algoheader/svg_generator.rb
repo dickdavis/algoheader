@@ -30,9 +30,9 @@ module Algoheader
   # Generates SVGs by providing randomized input to algorithm.
   class SvgGenerator < ServiceObject
     SYMBOLS = ['/', '|', "\\", '-', '+', 'x', 'o', "\#", '.']
-    WIDTHS = [0.5, 0.75, 1.0, 1.5, 2.0]
+    WIDTHS = [0.75, 1.0, 1.5]
     LINECAPS = ['butt', 'round', 'square']
-    OPACITIES = [0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+    OPACITIES = [0.8, 0.9, 1.0]
 
     attr_reader :fill_colors, :stroke_colors
 
@@ -50,9 +50,14 @@ module Algoheader
 
     private
 
+    def canvas_color
+      @canvas_color ||= random_fill_color
+    end
+
     def options
       {
         canvas__size__x: 1500,
+        style__canvas__fill__color: canvas_color,
         style__line__stroke__width: random_width,
         style__line__stroke__color: random_stroke_color,
         style__line__stroke__opacity: random_opacity,
@@ -62,8 +67,7 @@ module Algoheader
         style__ellipse__stroke__opacity: random_opacity,
         style__ellipse__stroke__linecap: random_linecap,
         style__ellipse__fill: random_fill_color,
-        style__rectangle__fill__color: random_fill_color,
-        style__canvas__fill__color: random_fill_color,
+        style__rectangle__fill__color: random_fill_color
       }
     end
 
@@ -84,11 +88,13 @@ module Algoheader
     end
 
     def random_fill_color
-      fill_colors.sample
+      return fill_colors.sample if @canvas_color.nil?
+
+      fill_colors.reject{|color| color == canvas_color }.sample
     end
 
     def random_stroke_color
-      stroke_colors.sample
+      stroke_colors.reject{|color| color == canvas_color }.sample
     end
   end
 end
