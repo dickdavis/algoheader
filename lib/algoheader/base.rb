@@ -87,13 +87,13 @@ rescue OptionParser::InvalidOption, OptionParser::MissingArgument
 end
 
 output_dir = options[:dir] ? options[:dir] : 'algoheader_output'
-FileUtils.mkdir_p output_dir
+FileUtils.mkdir_p(output_dir)
 
+config = options[:config] ? options[:config] : config_from_home
 config = YAML.load_file(options[:config])
 
 selection = ''
-
-while true
+while selection.empty?
   puts 'Choose a color scheme from the list below:'
 
   schemes = config['color_schemes'].collect{|scheme| scheme['name'] }
@@ -107,11 +107,20 @@ while true
     selection = config['color_schemes'].select{|scheme| scheme['name'] == schemes[user_input] }
                                        .first
                                        .transform_keys(&:to_sym)
-    break
   end
 end
 
 50.times do |index|
   svg_blob = Algoheader::SvgGenerator.call(**selection.slice(:fill_colors, :stroke_colors))
   Algoheader::PngTransformer.call(svg_blob, output_dir, "#{selection[:name].to_s}_#{index}")
+end
+
+def config_from_home
+  config_dir = (ENV['XDG_CONFIG_HOME'] || Dir.home << '/.config') << '/algoheader'
+  FileUtils.mkdir_p(config_dir)
+  unless FileUtils.exist?(config_dir + 'config.yml')
+    config_asset = File.expand_path(File.join(File.dirname(__FILE__), '..', 'assets', 'config.yml'))
+    FileUtils.cp(config_asset, config_dir << 'config.yml')
+  end
+  config_dir + 'config.yml'
 end
