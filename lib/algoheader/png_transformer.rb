@@ -32,6 +32,7 @@ module Algoheader
     attr_reader :svg, :dir, :filename
 
     def initialize(svg, dir, filename)
+      super
       @svg = svg
       @dir = dir
       @filename = filename

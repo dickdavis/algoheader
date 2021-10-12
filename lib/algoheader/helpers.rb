@@ -27,10 +27,10 @@ module Algoheader
   # Module that provides helper methods.
   module Helpers
     def self.config_from_home
-      config_dir = (ENV['XDG_CONFIG_HOME'] || Dir.home + '/.config') + '/algoheader'
+      config_dir = "#{ENV['XDG_CONFIG_HOME'] || "#{Dir.home}/.config"}/algoheader"
       FileUtils.mkdir_p(config_dir)
 
-      config_filename = config_dir + '/config.yml'
+      config_filename = "#{config_dir}/config.yml"
       unless File.exist?(config_filename)
         config_asset = File.expand_path(File.join(File.dirname(__FILE__), '..', 'assets', 'config.yml'))
         FileUtils.cp(config_asset, config_filename)
@@ -39,25 +39,27 @@ module Algoheader
       config_filename
     end
 
+    # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
     def self.selection_from_user(config, selection = '')
       while selection.empty?
         puts 'Choose a color scheme from the list below:'
 
-        schemes = config['color_schemes'].collect{|scheme| scheme['name'] }
+        schemes = config['color_schemes'].collect { |scheme| scheme['name'] }
         schemes.each.with_index do |scheme, index|
           puts "#{index}: #{scheme}"
         end
 
         puts 'Selection => '
         user_input = gets.chomp.to_i
-        if (0..schemes.length - 1).include?(user_input)
-          selection = config['color_schemes'].select{|scheme| scheme['name'] == schemes[user_input] }
-                                             .first
-                                             .transform_keys(&:to_sym)
-        end
+        next unless (0..schemes.length - 1).include?(user_input)
+
+        selection = config['color_schemes'].select { |scheme| scheme['name'] == schemes[user_input] }
+                                           .first
+                                           .transform_keys(&:to_sym)
       end
 
-      return selection
+      selection
     end
+    # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
   end
 end

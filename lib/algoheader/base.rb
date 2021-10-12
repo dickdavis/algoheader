@@ -42,6 +42,7 @@ end
 
 options = {}
 
+# rubocop:disable Metrics/BlockLength
 optparse = OptionParser.new do |opts|
   opts.banner = 'Usage: algoheader [options]'
 
@@ -86,6 +87,7 @@ GNU General Public License for more details.
     exit
   end
 end
+# rubocop:enable Metrics/BlockLength
 
 begin
   optparse.parse!
@@ -95,21 +97,19 @@ rescue OptionParser::InvalidOption, OptionParser::MissingArgument
   exit 1
 end
 
-output_dir = options[:dir] ? options[:dir] : 'algoheader_output'
+output_dir = options[:dir] || 'algoheader_output'
 FileUtils.mkdir_p(output_dir)
 
-config_file = options[:config] ? options[:config] : Algoheader::Helpers.config_from_home
+config_file = options[:config] || Algoheader::Helpers.config_from_home
 config = YAML.load_file(config_file)
 
 selection = Algoheader::Helpers.selection_from_user(config)
 
 (options[:images] || 50).times do |index|
-  filename = "#{selection[:name].to_s}_#{(index + 1).to_s.rjust(2, '0')}"
+  filename = "#{selection[:name]}_#{(index + 1).to_s.rjust(2, '0')}"
 
   svg_blob = Algoheader::SvgGenerator.call(**selection.slice(:fill_colors, :stroke_colors))
   File.write("#{output_dir}/#{filename}.svg", svg_blob)
 
-  if options[:raster]
-    Algoheader::PngTransformer.call(svg_blob, output_dir, filename)
-  end
+  Algoheader::PngTransformer.call(svg_blob, output_dir, filename) if options[:raster]
 end

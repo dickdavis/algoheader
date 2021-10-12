@@ -17,7 +17,6 @@
 # You should have received a copy of the GNU General Public License
 # along with algoheader.  If not, see <http://www.gnu.org/licenses/>.
 
-
 require 'minitest/autorun'
 require_relative '../lib/algoheader/hello'
 

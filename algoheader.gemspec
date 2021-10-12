@@ -17,10 +17,9 @@
 # You should have received a copy of the GNU General Public License
 # along with algoheader.  If not, see <http://www.gnu.org/licenses/>.
 
-
 lib = File.expand_path('../lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require File.expand_path('../lib/algoheader/version', __FILE__)
+require File.expand_path('lib/algoheader/version', __dir__)
 
 Gem::Specification.new do |s|
   s.name          = 'algoheader'
@@ -39,5 +38,6 @@ Gem::Specification.new do |s|
   s.test_files    = Dir['test/**/*']
   s.require_path  = ['lib']
 
-  s.add_runtime_dependency 'ascii_to_svg'
+  s.required_ruby_version = '>= 3.0'
+  s.add_runtime_dependency 'ascii_to_svg', '>=0.1.4'
 end

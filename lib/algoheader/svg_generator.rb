@@ -29,14 +29,15 @@ module Algoheader
   #
   # Generates SVGs by providing randomized input to algorithm.
   class SvgGenerator < ServiceObject
-    SYMBOLS = ['/', '|', "\\", '-', '+', 'x', 'o', "\#", '.']
-    WIDTHS = [0.75, 1.0, 1.5]
-    LINECAPS = ['butt', 'round', 'square']
-    OPACITIES = [0.8, 0.9, 1.0]
+    SYMBOLS = ['/', '|', '\\', '-', '+', 'x', 'o', "\#", '.'].freeze
+    WIDTHS = [0.75, 1.0, 1.5].freeze
+    LINECAPS = %w[butt round square].freeze
+    OPACITIES = [0.8, 0.9, 1.0].freeze
 
     attr_reader :fill_colors, :stroke_colors
 
     def initialize(fill_colors:, stroke_colors:)
+      super
       @fill_colors = fill_colors
       @stroke_colors = stroke_colors
     end
@@ -54,6 +55,7 @@ module Algoheader
       @canvas_color ||= random_fill_color
     end
 
+    # rubocop:disable Metrics/MethodLength
     def options
       {
         canvas__size__x: 1500,
@@ -70,6 +72,7 @@ module Algoheader
         style__rectangle__fill__color: random_fill_color
       }
     end
+    # rubocop:enable Metrics/MethodLength
 
     def random_symbol_sample
       SYMBOLS.sample(rand(SYMBOLS.length))
@@ -90,11 +93,11 @@ module Algoheader
     def random_fill_color
       return fill_colors.sample if @canvas_color.nil?
 
-      fill_colors.reject{|color| color == canvas_color }.sample
+      fill_colors.reject { |color| color == canvas_color }.sample
     end
 
     def random_stroke_color
-      stroke_colors.reject{|color| color == canvas_color }.sample
+      stroke_colors.reject { |color| color == canvas_color }.sample
     end
   end
 end
