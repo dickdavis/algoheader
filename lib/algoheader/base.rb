@@ -57,6 +57,10 @@ optparse = OptionParser.new do |opts|
     options[:images] = images.to_i > 99 ? 99 : images.to_i
   end
 
+  opts.on('-r', '--raster', 'Create PNG copies of the generated SVGs.') do
+    options[:raster] = true
+  end
+
   opts.on('-l', '--license', 'Displays the copyright notice') do
     puts "This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -100,6 +104,12 @@ config = YAML.load_file(config_file)
 selection = Algoheader::Helpers.selection_from_user(config)
 
 (options[:images] || 50).times do |index|
+  filename = "#{selection[:name].to_s}_#{(index + 1).to_s.rjust(2, '0')}"
+
   svg_blob = Algoheader::SvgGenerator.call(**selection.slice(:fill_colors, :stroke_colors))
-  Algoheader::PngTransformer.call(svg_blob, output_dir, "#{selection[:name].to_s}_#{(index + 1).to_s.rjust(2, '0')}")
+  File.write("#{output_dir}/#{filename}.svg", svg_blob)
+
+  if options[:raster]
+    Algoheader::PngTransformer.call(svg_blob, output_dir, filename)
+  end
 end
