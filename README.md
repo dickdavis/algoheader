@@ -18,7 +18,7 @@ Programmatically generate beautiful header images for blogs or social media acco
 
 ## About
 
-Programmatically generate beautiful header images for blogs or social media accounts.
+Generate beautiful header images for blogs or social media accounts from the commandline, using the [ascii_to_svg](https://github.com/a6b8/ascii-to-svg-generator-for-ruby) library.
 
 ![Example 1](/example_1.svg)
 ![Example 2](/example_2.svg)
