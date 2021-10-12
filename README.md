@@ -3,6 +3,7 @@
 Programmatically generate beautiful header images for blogs or social media accounts.
 
 ## Table of Contents
+
 * About
 * Getting started
     * Installation
@@ -18,6 +19,10 @@ Programmatically generate beautiful header images for blogs or social media acco
 ## About
 
 Programmatically generate beautiful header images for blogs or social media accounts.
+
+![Example 1](/example_1.svg)
+![Example 2](/example_2.svg)
+![Example 3](/example_3.svg)
 
 Documentation can be found [here](https://d3d1rty.github.io/algoheader/).
 
