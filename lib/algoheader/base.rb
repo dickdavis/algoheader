@@ -101,5 +101,5 @@ selection = Algoheader::Helpers.selection_from_user(config)
 
 (options[:images] || 50).times do |index|
   svg_blob = Algoheader::SvgGenerator.call(**selection.slice(:fill_colors, :stroke_colors))
-  Algoheader::PngTransformer.call(svg_blob, output_dir, "#{selection[:name].to_s}_#{index.to_s.rjust(2, '0')}")
+  Algoheader::PngTransformer.call(svg_blob, output_dir, "#{selection[:name].to_s}_#{(index + 1).to_s.rjust(2, '0')}")
 end
