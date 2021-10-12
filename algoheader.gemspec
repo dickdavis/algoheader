@@ -38,6 +38,7 @@ Gem::Specification.new do |s|
   s.test_files    = Dir['test/**/*']
   s.require_path  = ['lib']
 
-  s.required_ruby_version = '>= 3.0'
-  s.add_runtime_dependency 'ascii_to_svg', '>=0.1.4'
+  s.required_ruby_version = '~> 3.0'
+  s.add_runtime_dependency 'ascii_to_svg', '~> 0.1', '>= 0.1.4'
+  s.add_runtime_dependency 'rmagick', '~> 4.2', '>= 4.2.3'
 end

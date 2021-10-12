@@ -36,11 +36,12 @@ module Algoheader
 
     attr_reader :fill_colors, :stroke_colors
 
+    # rubocop:disable Lint/MissingSuper
     def initialize(fill_colors:, stroke_colors:)
-      super
       @fill_colors = fill_colors
       @stroke_colors = stroke_colors
     end
+    # rubocop:enable Lint/MissingSuper
 
     def call
       ascii = AsciiToSvg.example_string(random_symbol_sample, 80)

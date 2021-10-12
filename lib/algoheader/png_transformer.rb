@@ -31,12 +31,13 @@ module Algoheader
   class PngTransformer < ServiceObject
     attr_reader :svg, :dir, :filename
 
+    # rubocop:disable Lint/MissingSuper
     def initialize(svg, dir, filename)
-      super
       @svg = svg
       @dir = dir
       @filename = filename
     end
+    # rubocop:enable Lint/MissingSuper
 
     def call
       img = Magick::Image.from_blob(svg) do
