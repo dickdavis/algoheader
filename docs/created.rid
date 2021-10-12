@@ -1,0 +1,10 @@
+Tue, 12 Oct 2021 01:31:38 -0500
+README.md	Tue, 12 Oct 2021 01:31:30 -0500
+lib/algoheader.rb	Sun, 10 Oct 2021 10:31:11 -0500
+lib/algoheader/base.rb	Tue, 12 Oct 2021 01:19:12 -0500
+lib/algoheader/helpers.rb	Tue, 12 Oct 2021 01:18:16 -0500
+lib/algoheader/png_transformer.rb	Tue, 12 Oct 2021 01:17:27 -0500
+lib/algoheader/service_object.rb	Mon, 11 Oct 2021 10:09:33 -0500
+lib/algoheader/svg_generator.rb	Tue, 12 Oct 2021 01:17:12 -0500
+lib/algoheader/version.rb	Tue, 12 Oct 2021 01:11:36 -0500
+test/test_hello.rb	Tue, 12 Oct 2021 01:11:36 -0500

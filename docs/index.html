@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>algoheader Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  <div id="project-metadata">
+    
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="./README_md.html">README</a>
+  </ul>
+</div>
+
+    <div id="classindex-section" class="nav-section">
+  <h3>Class and Module Index</h3>
+
+  <ul class="link-list">
+    <li><a href="./Algoheader.html">Algoheader</a>
+    <li><a href="./Algoheader/Helpers.html">Algoheader::Helpers</a>
+    <li><a href="./Algoheader/PngTransformer.html">Algoheader::PngTransformer</a>
+    <li><a href="./Algoheader/ServiceObject.html">Algoheader::ServiceObject</a>
+    <li><a href="./Algoheader/SvgGenerator.html">Algoheader::SvgGenerator</a>
+    <li><a href="./HelloTest.html">HelloTest</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main">
+
+
+<h1 id="label-algoheader">algoheader<span><a href="#label-algoheader">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>Programmatically generate beautiful header images for blogs or social media accounts.</p>
+
+<h2 id="label-Table+of+Contents">Table of Contents<span><a href="#label-Table+of+Contents">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>About</p>
+</li><li>
+<p>Getting started</p>
+<ul><li>
+<p>Installation</p>
+</li><li>
+<p>Usage</p>
+</li></ul>
+</li><li>
+<p>Contributing</p>
+<ul><li>
+<p>Code of Conduct</p>
+</li><li>
+<p>Code Style</p>
+</li><li>
+<p>Documentation</p>
+</li><li>
+<p>Testing</p>
+</li></ul>
+</li><li>
+<p>TODO</p>
+</li><li>
+<p>Changelog</p>
+</li></ul>
+
+<h2 id="label-About">About<span><a href="#label-About">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Programmatically generate beautiful header images for blogs or social media accounts.</p>
+
+<p>Documentation can be found <a href="https://d3d1rty.github.io/algoheader/">here</a>.</p>
+
+<h2 id="label-License">License<span><a href="#label-License">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>See <code>LICENSE</code> in the project root directory for license information.</p>
+
+<h2 id="label-Getting+Started">Getting Started<span><a href="#label-Getting+Started">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Installation">Installation<span><a href="#label-Installation">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Execute command <code>gem install algoheader</code> to install.</p>
+
+<h3 id="label-Usage">Usage<span><a href="#label-Usage">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Executing <code>algoheader</code> with no options will generate a config file in your <code>$XDG_CONFIG_HOME</code> directory with a default color scheme information as well as 50 SVG files with various designs.</p>
+
+<p>To get a full list of options, execute command:</p>
+
+<pre class="ruby"><span class="ruby-identifier">algoheader</span> <span class="ruby-operator">-</span><span class="ruby-identifier">h</span>
+</pre>
+
+<p>For example, the following command will use the specified config file to generate 42 SVGs and associated PNGs to the specified output directory:</p>
+
+<pre>algoheader --config config.yml --directory output/ --images 42 --raster
+
+# Shorthand
+algoheader -c config.yml -d output/ -i 42 -r</pre>
+
+<h2 id="label-Contributing">Contributing<span><a href="#label-Contributing">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Code+of+Conduct">Code of Conduct<span><a href="#label-Code+of+Conduct">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>All contributions are welcome, but are merged at the discretion of the core contributor(s). Contributions to the project will be judged on their merits without respect to a contributor&#39;s publicly or privately held beliefs, opinions, ideology, nationality, ethnicity, or demographic. Most communications within the project should be limited to project planning, development, bugfixing, or other relevant topics; for off-topic discussions, contributors are expected to use good judgement and to avoid intentionally abusive behavior. Conflict should be resolved at the lowest level possible with minimal disruption to the project. Core contributor(s) reserve the right to request that a contributor alter their behavior, however, nothing in this code of conduct should be construed in such a manner that it infringes upon any contributor&#39;s freedom of expression.</p>
+
+<h3 id="label-Code+Style">Code Style<span><a href="#label-Code+Style">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>To keep a consistent code style, it is recommended to use <a href="https://github.com/bbatsov/rubocop">rubocop</a>. If you use <code>vim</code> and <a href="https://github.com/vim-syntastic/syntastic">syntastic</a>, you can use <code>rubocop</code> as a Ruby checker. To manually run <code>rubocop</code>, you can run the following commands:</p>
+
+<pre class="ruby"><span class="ruby-comment"># Run rubocop for the entire project</span>
+<span class="ruby-identifier">bundle</span> <span class="ruby-identifier">exec</span> <span class="ruby-identifier">rubocop</span>
+<span class="ruby-comment"># Run rubocop for a specific file</span>
+<span class="ruby-identifier">bundle</span> <span class="ruby-identifier">exec</span> <span class="ruby-identifier">rubocop</span> <span class="ruby-identifier">foo</span><span class="ruby-operator">/</span><span class="ruby-identifier">bar</span>.<span class="ruby-identifier">rb</span>
+</pre>
+
+<h3 id="label-Documentation">Documentation<span><a href="#label-Documentation">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Comment any code contributions according to the existing conventions within the project. Reference the examples listed below:</p>
+
+<p>Example top-level comment:</p>
+
+<pre class="ruby"><span class="ruby-comment">##</span>
+<span class="ruby-comment"># = ClassNameGoesHere</span>
+<span class="ruby-comment"># Author::    [Author Information]</span>
+<span class="ruby-comment"># Copyright:: Copyright [Year] [Author Information]</span>
+<span class="ruby-comment"># License::   GNU Public License 3</span>
+<span class="ruby-comment">#</span>
+<span class="ruby-comment"># This is a class that is something and does something.</span>
+</pre>
+
+<p>Example method comment:</p>
+
+<pre class="ruby"><span class="ruby-comment">##</span>
+<span class="ruby-comment"># This is a method that does something</span>
+</pre>
+
+<p>Documentation should be regenerated prior to merging any branches into master. The latest <a href="https://d3d1rty.github.io/algoheader/">documentation</a> auto-sources off the <code>docs/</code> folder on the master branch. For more information on RDoc, go <a href="https://rdoc.github.io/rdoc/index.html">here</a>.</p>
+
+<pre class="ruby"><span class="ruby-comment"># Run custom rake task to regenerate RDoc documentation</span>
+<span class="ruby-identifier">rake</span> <span class="ruby-identifier">rdoc</span>
+</pre>
+
+<h3 id="label-Testing">Testing<span><a href="#label-Testing">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p><strong>NOTE</strong>: The test suite has yet to be implemented.</p>
+
+<p>Integration tests should be written for all classes and methods. The test suite can be run manually <code>bundle exec rake test</code> or automatically using guard <code>bundle exec guard</code>.</p>
+
+<h2 id="label-TODO">TODO<span><a href="#label-TODO">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Implement test suite.</p>
+</li></ul>
+
+<h2 id="label-Changelog">Changelog<span><a href="#label-Changelog">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-12-OCT-2021">12-OCT-2021<span><a href="#label-12-OCT-2021">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Released initial version <code>0.0.1</code>.</p>
+</li></ul>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.3.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Algoheader::Helpers - algoheader Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-c-config_from_home">::config_from_home</a>
+    <li ><a href="#method-c-selection_from_user">::selection_from_user</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Algoheader::Helpers">
+  <h1 id="module-Algoheader::Helpers" class="module">
+    module Algoheader::Helpers
+  </h1>
+
+  <section class="description">
+    
+<h1 id="module-Algoheader::Helpers-label-Helpers"><a href="Helpers.html"><code>Helpers</code></a><span><a href="#module-Algoheader::Helpers-label-Helpers">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>Dick Davis</p>
+</dd><dt>Copyright
+<dd>
+<p>Copyright 2021 Dick Davis</p>
+</dd><dt>License
+<dd>
+<p>GNU Public License 3</p>
+</dd></dl>
+
+<p>Module that provides helper methods.</p>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-config_from_home" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">config_from_home</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="config_from_home-source">
+            <pre><span class="ruby-comment"># File lib/algoheader/helpers.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">config_from_home</span>
+  <span class="ruby-identifier">config_dir</span> = <span class="ruby-node">&quot;#{ENV[&#39;XDG_CONFIG_HOME&#39;] || &quot;#{Dir.home}/.config&quot;}/algoheader&quot;</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">config_dir</span>)
+
+  <span class="ruby-identifier">config_filename</span> = <span class="ruby-node">&quot;#{config_dir}/config.yml&quot;</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">config_filename</span>)
+    <span class="ruby-identifier">config_asset</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>), <span class="ruby-string">&#39;..&#39;</span>, <span class="ruby-string">&#39;assets&#39;</span>, <span class="ruby-string">&#39;config.yml&#39;</span>))
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span>(<span class="ruby-identifier">config_asset</span>, <span class="ruby-identifier">config_filename</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">config_filename</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-c-selection_from_user" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">selection_from_user</span><span
+            class="method-args">(config, selection = &#39;&#39;)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>rubocop:disable Metrics/MethodLength, Metrics/AbcSize</p>
+
+          <div class="method-source-code" id="selection_from_user-source">
+            <pre><span class="ruby-comment"># File lib/algoheader/helpers.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">selection_from_user</span>(<span class="ruby-identifier">config</span>, <span class="ruby-identifier">selection</span> = <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">selection</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Choose a color scheme from the list below:&#39;</span>
+
+    <span class="ruby-identifier">schemes</span> = <span class="ruby-identifier">config</span>[<span class="ruby-string">&#39;color_schemes&#39;</span>].<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">scheme</span><span class="ruby-operator">|</span> <span class="ruby-identifier">scheme</span>[<span class="ruby-string">&#39;name&#39;</span>] }
+    <span class="ruby-identifier">schemes</span>.<span class="ruby-identifier">each</span>.<span class="ruby-identifier">with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">scheme</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{index}: #{scheme}&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Selection =&gt; &#39;</span>
+    <span class="ruby-identifier">user_input</span> = <span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> (<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">schemes</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">user_input</span>)
+
+    <span class="ruby-identifier">selection</span> = <span class="ruby-identifier">config</span>[<span class="ruby-string">&#39;color_schemes&#39;</span>].<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">scheme</span><span class="ruby-operator">|</span> <span class="ruby-identifier">scheme</span>[<span class="ruby-string">&#39;name&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">schemes</span>[<span class="ruby-identifier">user_input</span>] }
+                                       .<span class="ruby-identifier">first</span>
+                                       .<span class="ruby-identifier">transform_keys</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_sym</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">selection</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.3.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

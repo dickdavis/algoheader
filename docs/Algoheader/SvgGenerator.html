@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Algoheader::SvgGenerator - algoheader Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+<div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  <p class="link"><a href="ServiceObject.html">Algoheader::ServiceObject</a>
+</div>
+
+    
+    
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    <li ><a href="#method-i-call">#call</a>
+    <li ><a href="#method-i-canvas_color">#canvas_color</a>
+    <li ><a href="#method-i-options">#options</a>
+    <li ><a href="#method-i-random_fill_color">#random_fill_color</a>
+    <li ><a href="#method-i-random_linecap">#random_linecap</a>
+    <li ><a href="#method-i-random_opacity">#random_opacity</a>
+    <li ><a href="#method-i-random_stroke_color">#random_stroke_color</a>
+    <li ><a href="#method-i-random_symbol_sample">#random_symbol_sample</a>
+    <li ><a href="#method-i-random_width">#random_width</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Algoheader::SvgGenerator">
+  <h1 id="class-Algoheader::SvgGenerator" class="class">
+    class Algoheader::SvgGenerator
+  </h1>
+
+  <section class="description">
+    
+<h1 id="class-Algoheader::SvgGenerator-label-SvgGenerator"><a href="SvgGenerator.html"><code>SvgGenerator</code></a><span><a href="#class-Algoheader::SvgGenerator-label-SvgGenerator">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>Dick Davis</p>
+</dd><dt>Copyright
+<dd>
+<p>Copyright 2021 Dick Davis</p>
+</dd><dt>License
+<dd>
+<p>GNU Public License 3</p>
+</dd></dl>
+
+<p>Generates SVGs by providing randomized input to algorithm.</p>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+        <dt id="LINECAPS">LINECAPS
+        <dd>
+        <dt id="OPACITIES">OPACITIES
+        <dd>
+        <dt id="SYMBOLS">SYMBOLS
+        <dd>
+        <dt id="WIDTHS">WIDTHS
+        <dd>
+      </dl>
+    </section>
+
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      <div id="attribute-i-fill_colors" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">fill_colors</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+      <div id="attribute-i-stroke_colors" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">stroke_colors</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+    </section>
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-new" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(fill_colors:, stroke_colors:)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/algoheader/svg_generator.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-value">fill_colors:</span>, <span class="ruby-value">stroke_colors:</span>)
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@fill_colors</span> = <span class="ruby-identifier">fill_colors</span>
+  <span class="ruby-ivar">@stroke_colors</span> = <span class="ruby-identifier">stroke_colors</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-call" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">call</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="call-source">
+            <pre><span class="ruby-comment"># File lib/algoheader/svg_generator.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">call</span>
+  <span class="ruby-identifier">ascii</span> = <span class="ruby-constant">AsciiToSvg</span>.<span class="ruby-identifier">example_string</span>(<span class="ruby-identifier">random_symbol_sample</span>, <span class="ruby-value">80</span>)
+  <span class="ruby-constant">AsciiToSvg</span>.<span class="ruby-identifier">from_string</span>(<span class="ruby-identifier">ascii</span>, <span class="ruby-value">16</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">ZeroDivisionError</span>
+  <span class="ruby-keyword">retry</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+      <div id="method-i-canvas_color" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">canvas_color</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="canvas_color-source">
+            <pre><span class="ruby-comment"># File lib/algoheader/svg_generator.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">canvas_color</span>
+  <span class="ruby-ivar">@canvas_color</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">random_fill_color</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-options" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">options</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>rubocop:disable Metrics/MethodLength</p>
+
+          <div class="method-source-code" id="options-source">
+            <pre><span class="ruby-comment"># File lib/algoheader/svg_generator.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">options</span>
+  {
+    <span class="ruby-value">canvas__size__x:</span> <span class="ruby-value">1500</span>,
+    <span class="ruby-value">style__canvas__fill__color:</span> <span class="ruby-identifier">canvas_color</span>,
+    <span class="ruby-value">style__line__stroke__width:</span> <span class="ruby-identifier">random_width</span>,
+    <span class="ruby-value">style__line__stroke__color:</span> <span class="ruby-identifier">random_stroke_color</span>,
+    <span class="ruby-value">style__line__stroke__opacity:</span> <span class="ruby-identifier">random_opacity</span>,
+    <span class="ruby-value">style__line__stroke__linecap:</span> <span class="ruby-identifier">random_linecap</span>,
+    <span class="ruby-value">style__ellipse__stroke__width:</span> <span class="ruby-identifier">random_width</span>,
+    <span class="ruby-value">style__ellipse__stroke__color:</span> <span class="ruby-identifier">random_stroke_color</span>,
+    <span class="ruby-value">style__ellipse__stroke__opacity:</span> <span class="ruby-identifier">random_opacity</span>,
+    <span class="ruby-value">style__ellipse__stroke__linecap:</span> <span class="ruby-identifier">random_linecap</span>,
+    <span class="ruby-value">style__ellipse__fill:</span> <span class="ruby-identifier">random_fill_color</span>,
+    <span class="ruby-value">style__rectangle__fill__color:</span> <span class="ruby-identifier">random_fill_color</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-random_fill_color" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">random_fill_color</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="random_fill_color-source">
+            <pre><span class="ruby-comment"># File lib/algoheader/svg_generator.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">random_fill_color</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">fill_colors</span>.<span class="ruby-identifier">sample</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@canvas_color</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">fill_colors</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">color</span><span class="ruby-operator">|</span> <span class="ruby-identifier">color</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">canvas_color</span> }.<span class="ruby-identifier">sample</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-random_linecap" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">random_linecap</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="random_linecap-source">
+            <pre><span class="ruby-comment"># File lib/algoheader/svg_generator.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">random_linecap</span>
+  <span class="ruby-constant">LINECAPS</span>.<span class="ruby-identifier">sample</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-random_opacity" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">random_opacity</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="random_opacity-source">
+            <pre><span class="ruby-comment"># File lib/algoheader/svg_generator.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">random_opacity</span>
+  <span class="ruby-constant">OPACITIES</span>.<span class="ruby-identifier">sample</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-random_stroke_color" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">random_stroke_color</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="random_stroke_color-source">
+            <pre><span class="ruby-comment"># File lib/algoheader/svg_generator.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">random_stroke_color</span>
+  <span class="ruby-identifier">stroke_colors</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">color</span><span class="ruby-operator">|</span> <span class="ruby-identifier">color</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">canvas_color</span> }.<span class="ruby-identifier">sample</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-random_symbol_sample" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">random_symbol_sample</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>rubocop:enable Metrics/MethodLength</p>
+
+          <div class="method-source-code" id="random_symbol_sample-source">
+            <pre><span class="ruby-comment"># File lib/algoheader/svg_generator.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">random_symbol_sample</span>
+  <span class="ruby-constant">SYMBOLS</span>.<span class="ruby-identifier">sample</span>(<span class="ruby-identifier">rand</span>(<span class="ruby-constant">SYMBOLS</span>.<span class="ruby-identifier">length</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-random_width" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">random_width</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="random_width-source">
+            <pre><span class="ruby-comment"># File lib/algoheader/svg_generator.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">random_width</span>
+  <span class="ruby-constant">WIDTHS</span>.<span class="ruby-identifier">sample</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.3.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
