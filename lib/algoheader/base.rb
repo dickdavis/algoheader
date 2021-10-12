@@ -92,23 +92,7 @@ FileUtils.mkdir_p(output_dir)
 config = options[:config] ? options[:config] : config_from_home
 config = YAML.load_file(options[:config])
 
-selection = ''
-while selection.empty?
-  puts 'Choose a color scheme from the list below:'
-
-  schemes = config['color_schemes'].collect{|scheme| scheme['name'] }
-  schemes.each.with_index do |scheme, index|
-    puts "#{index}: #{scheme}"
-  end
-
-  puts 'Selection => '
-  user_input = gets.chomp.to_i
-  if (0..schemes.length - 1).include?(user_input)
-    selection = config['color_schemes'].select{|scheme| scheme['name'] == schemes[user_input] }
-                                       .first
-                                       .transform_keys(&:to_sym)
-  end
-end
+selection = selection_from_user
 
 50.times do |index|
   svg_blob = Algoheader::SvgGenerator.call(**selection.slice(:fill_colors, :stroke_colors))
@@ -123,4 +107,25 @@ def config_from_home
     FileUtils.cp(config_asset, config_dir << 'config.yml')
   end
   config_dir + 'config.yml'
+end
+
+def selection_from_user(selection = '')
+  while selection.empty?
+    puts 'Choose a color scheme from the list below:'
+
+    schemes = config['color_schemes'].collect{|scheme| scheme['name'] }
+    schemes.each.with_index do |scheme, index|
+      puts "#{index}: #{scheme}"
+    end
+
+    puts 'Selection => '
+    user_input = gets.chomp.to_i
+    if (0..schemes.length - 1).include?(user_input)
+      selection = config['color_schemes'].select{|scheme| scheme['name'] == schemes[user_input] }
+                                         .first
+                                         .transform_keys(&:to_sym)
+    end
+  end
+
+  return selection
 end
